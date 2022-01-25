@@ -1,13 +1,13 @@
 <admissions>
-	<admission id="23">
+	<admission slNo="23">
 		<name>John Carter</name>
 		<admissionDate>25/12/2015</admissionDate>
 	</admission>
-	<admission id="29">
+	<admission slNo="29">
 		<name>Bob Marshal</name>
 		<admissionDate>13/01/1999</admissionDate>
 	</admission>
-	<admission id="35">
+	<admission slNo="35">
 		<name>Clark Kent</name>
 		<admissionDate>17/06/2005</admissionDate>
 	</admission>
