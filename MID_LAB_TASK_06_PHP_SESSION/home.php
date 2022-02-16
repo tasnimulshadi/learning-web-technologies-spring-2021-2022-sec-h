@@ -13,7 +13,6 @@
 					<a href="home.php"> Home </a> |
 					<a href="login.php"> Login </a> |
 					<a href="reg.php"> Registration </a>
-					<hr>
 				</td>
 
 			</tr>

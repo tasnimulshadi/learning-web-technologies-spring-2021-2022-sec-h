@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Login</title>
+	<title>Forgot Password</title>
 </head>
 <body>
 
@@ -19,24 +19,17 @@
 			<tr height="400px">
 				<td width=" 25%"></td>
 				<td width=" 25%">
-					<form method="POST" action="loginCheck.php">
+					<form method="POST" action="forgotPassCheck.php">
 						<fieldset>
-							<legend>Login</legend>
+							<legend>Forgot Password</legend>
 							<table>
 								<tr>
-									<td>Username</td>
-									<td><input type="text" name="username" value=""></td>
-								</tr>
-								<tr>
-									<td>Password</td>
-									<td><input type="password" name="password" value=""></td>
+									<td>Email</td>
+									<td><input type="email" name="email" value=""></td>
 								</tr>
 								<tr>
 									<td></td>
-									<td>
-										<input type="submit" name="submit" value="Submit">
-										<a href="forgotPass.php"> Forgot Password?</a>
-									</td>
+									<td><input type="submit" name="submit" value="Submit"></td>
 								</tr>
 							</table>
 						</fieldset>

@@ -7,10 +7,9 @@
 		}
 ?>
 
-
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Profile</title>
 </head>
 <body>
 
@@ -50,7 +49,60 @@
 					</table>
 				</td>
 				<td width=" 80%">
-					<h1>Welcome <?php echo $user['name']; ?></h1>
+					
+					<fieldset>
+						<legend><h2>Profile</h2></legend>
+						<table width="100%">
+							<tr>
+								<td>
+									<table width="100%">
+										<tr>
+											<td><b>Name:</b></td>
+											<td><?php echo $user['name']; ?></td>
+										</tr>
+										<tr>
+											<td colspan="2"><hr></td>
+										</tr>
+										<tr>
+											<td><b>Email:</b></td>
+											<td><?php echo $user['email']; ?></td>
+										</tr>
+										<tr>
+											<td colspan="2"><hr></td>
+										</tr>
+										<tr>
+											<td><b>Gender:</b></td>
+											<td><?php echo $user['gender']; ?></td>
+										</tr>
+										<tr>
+											<td colspan="2"><hr></td>
+										</tr>
+										<tr>
+											<td><b>Date of Birth:</b></td>
+											<td><?php echo $user['dob']; ?></td>
+										</tr>
+										<tr>
+											<td colspan="2"><hr></td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<img src="profile.png">
+									<br>
+									<a href="#"> Change</a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2"><hr></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<a href="editProfile.php"> Edit Profile </a>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+
 				</td>
 				<td width="0%"></td>
 			</tr>

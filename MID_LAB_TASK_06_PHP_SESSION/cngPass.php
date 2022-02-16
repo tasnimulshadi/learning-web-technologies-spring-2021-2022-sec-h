@@ -7,10 +7,9 @@
 		}
 ?>
 
-
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Edit Profile</title>
 </head>
 <body>
 
@@ -49,10 +48,42 @@
 						</tr>
 					</table>
 				</td>
-				<td width=" 80%">
-					<h1>Welcome <?php echo $user['name']; ?></h1>
+				<td width=" 30%">
+					<form method="POST" action="cngPassCheck.php">
+						<fieldset>
+							<legend><h2>Edit Profile</h2></legend>
+							<table width="100%">
+								<tr>
+									<td><b>Current Password:</b></td>
+									<td>
+										<input type="text" name="" value="<?php echo $user['password']; ?>">
+									</td>
+								</tr>
+								<tr>
+									<td><b>New Password:</b></td>
+									<td>
+										<input type="password" name="newPassword" value="">
+									</td>
+								</tr>
+								<tr>
+									<td><b>Retype New Password:</b></td>
+									<td>
+										<input type="password" name="confirmNewPassword" value="">
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2"><hr></td>
+								</tr>
+								<tr>
+									<td colspan="2"> 
+										<input type="submit" name="submit" value="Submit">
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
 				</td>
-				<td width="0%"></td>
+				<td width="50%"></td>
 			</tr>
 			<tr height="50px">
 				<td colspan="3" align="center"> 
