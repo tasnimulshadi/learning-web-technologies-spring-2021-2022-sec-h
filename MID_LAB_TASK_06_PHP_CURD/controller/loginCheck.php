@@ -23,6 +23,7 @@
 					header('location: ../views/home.php'.'?uname='.$username);
 				}else{
 					echo "invalid username/password";
+					break;
 				}
 			}
 		}else{

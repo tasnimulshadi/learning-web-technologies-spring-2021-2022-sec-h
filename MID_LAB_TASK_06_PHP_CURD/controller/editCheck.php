@@ -1,6 +1,8 @@
 <?php 
 	session_start();
 
+	$uname =  $_GET['uname'];
+
 	if(isset($_REQUEST['submit'])){
 		$username = $_REQUEST['username'];
 		$password = $_REQUEST['password'];
@@ -16,23 +18,16 @@
 				$i++;
 			}
 			fclose($file1);
-			print_r($userArray);
-
 
 			$file2 = fopen("../model/user.txt", 'w');
 			for ($j=0; $j < $i; $j++) { 
-				if($userArray[$j][0] != $username){
+				if($userArray[$j][0] != $uname){
 					$userData = $userData.$userArray[$j][0]."|".$userArray[$j][1]."|".$userArray[$j][2]."\n";
 				}
 			}
+			$userData = $userData.$username."|".$password."|".$email."\n";
 			fwrite($file2, $userData);
 			fclose($file2);
-
-
-			$newUser = $username."|".$password."|".$email."\n";
-			$file3 = fopen("../model/user.txt", 'a');
-			fwrite($file3, $newUser);
-			fclose($file3);
 			
 			header('location: ../views/login.php');
 
