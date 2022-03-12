@@ -1,0 +1,2 @@
+admin|a|a|a@a.a
+admin|admin|admin|admin@email.com
