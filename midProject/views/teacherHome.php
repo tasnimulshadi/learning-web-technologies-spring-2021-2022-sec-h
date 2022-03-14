@@ -1,8 +1,8 @@
-<?php
+<?php 
 	require_once('../controller/headerCookie.php');
 
 	$uname =  $_SESSION['uname'];
-	$file = fopen('../model/userAdmin.txt', 'r');
+	$file = fopen('../model/userTeacher.txt', 'r');
 	while(!feof($file)){
 		$user = fgets($file);
 		$userArray = explode('|', $user);
@@ -16,9 +16,10 @@
 
 <html>
 <head>
-	<title>Add Notice</title>
+	<title>Home Page</title>
 </head>
-<body>	
+<body>
+	
 	<!-- Menu -->
 	<table border="0" width="100%" height="100px">
 		<tr>
@@ -39,7 +40,6 @@
 	<table border="0" width="100%" height="500px">
 		<tr>
 			<td align="center" width="20%" valign="top">
-				<!-- Side menu -->
 				<table border="1"  width="100%" >
 					<tr>
 						<td align="center" height="50px">
@@ -69,42 +69,16 @@
 				</table>
 			</td>
 			<td width="10%"></td>
-			<td width="40%">
-				<fieldset>
-					<legend>Add Notice</legend>
-					<form method="POST" action="../controller/addNoticeCheck.php">
-						<table>
-							<tr>
-								<td>Date</td>
-								<td>
-									<input type="date" name="date" value="">
-								</td>
-							</tr>
-							<tr>
-								<td>Title</td>
-								<td><input type="text" name="title" value=""></td>
-							</tr>
-							<tr>
-								<td>Details</td>
-								<td><input type="text" name="details" value=""></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><input type="submit" name="submit" value="Submit"></td>
-							</tr>
-						</table>
-					</form>
-				</fieldset>
-				<br>
-				<fieldset>
-					<legend>Upload Notice</legend>
-					<form method="POST" action="../controller/fileUploadCheck.php" enctype="multipart/form-data">
-						File: <input type="file" name="myfile"> 	
-						<input type="submit" name="submit" value="Submit">
-					</form>
-				</fieldset>
+			<td width="70%">
+				<!-- Here -->
+				<table>
+					<tr>
+						<td align="center"><img src="img/wc.png"></td>
+						<td width="100px"></td>
+						<td><h1><?=$userData[1]?></h1></td>
+					</tr>
+				</table>				
 			</td>
-			<td width="30%"></td>
 		</tr>
 	</table>
 

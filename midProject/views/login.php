@@ -1,4 +1,3 @@
-
 <html>
 <head>
 	<title>Login page</title>
@@ -31,14 +30,27 @@
 						<legend>Login</legend>
 						<table>
 							<tr>
-								<td>Username</td>
+								<td>User Type:</td>
+								<td width="10"></td>
+								<td>
+									<input type="radio" name="usertype" value="admin" required>Admin
+									<input type="radio" name="usertype" value="teacher">Teacher
+									<input type="radio" name="usertype" value="student">Student
+									<input type="radio" name="usertype" value="parent">Parent
+								</td>
+							</tr>
+							<tr>
+								<td>Username:</td>
+								<td></td>
 								<td><input type="text" name="username" value=""></td>
 							</tr>
 							<tr>
-								<td>Password</td>
+								<td>Password:</td>
+								<td></td>
 								<td><input type="password" name="password" value=""	></td>
 							</tr>
 							<tr>
+								<td></td>
 								<td></td>
 								<td><input type="submit" name="submit" value="Submit"></td>
 							</tr>

@@ -1,1 +1,3 @@
-student|s|s|sd@s.fg
+student|s|s|s@s.s
+student|student|student|student@student.student
+student|student|1234|student@email.com

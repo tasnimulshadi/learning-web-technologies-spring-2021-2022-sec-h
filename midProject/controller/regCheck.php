@@ -1,7 +1,7 @@
 <?php 
 	require_once('../controller/headerCookie.php');
 
-	$file = fopen('../model/user.txt', 'r');
+	$file = fopen('../model/userAdmin.txt', 'r');
 	while(!feof($file)){
 		$userFile = fgets($file);
 		if ($userFile!=null) {
@@ -24,7 +24,7 @@
 			if (!$fileEmpty) {
 				if(trim($userArray[1]) != $username){
 					$user = "\n"."admin"."|".$username."|".$password."|".$email;
-					$file = fopen("../model/user.txt", 'a');
+					$file = fopen("../model/userAdmin.txt", 'a');
 					fwrite($file, $user);
 					fclose($file);
 					
@@ -36,7 +36,7 @@
 			}
 			else{
 				$user = "admin"."|".$username."|".$password."|".$email;
-				$file = fopen("../model/user.txt", 'w');
+				$file = fopen("../model/userAdmin.txt", 'w');
 				fwrite($file, $user);
 				fclose($file);
 

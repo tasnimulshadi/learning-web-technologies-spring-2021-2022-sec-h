@@ -2,7 +2,7 @@
 	require_once('../controller/headerCookie.php');
 
 	$uname =  $_SESSION['uname'];
-	$file = fopen('../model/user.txt', 'r');
+	$file = fopen('../model/userAdmin.txt', 'r');
 	while(!feof($file)){
 		$user = fgets($file);
 		$userArray = explode('|', $user);
@@ -77,7 +77,8 @@
 							<tr>
 								<td>User Type</td>
 								<td>
-									<input type="radio" name="usertype" value="teacher" required>Teacher
+									<input type="radio" name="usertype" value="admin" required>Admin
+									<input type="radio" name="usertype" value="teacher">Teacher
 									<input type="radio" name="usertype" value="student">Student
 									<input type="radio" name="usertype" value="parent">Parent
 								</td>
