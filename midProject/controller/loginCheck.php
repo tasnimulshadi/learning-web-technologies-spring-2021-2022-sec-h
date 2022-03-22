@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	require('../model/userModel.php');
 	
 	if(isset($_REQUEST['submit'])){
 		$usertype = $_REQUEST['usertype'];
