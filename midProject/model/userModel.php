@@ -45,6 +45,20 @@
 
 	function getUserById($id){
 		$conn = getConnection();
+
+	}
+
+	function deleteUserById($id){
+		$conn = getConnection();
+		$sql = "DELETE FROM users WHERE id='{$id}'";
+		$del = mysqli_query($conn, $sql);
+		
+		if($del){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	function updateUser($user){

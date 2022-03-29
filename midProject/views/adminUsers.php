@@ -83,10 +83,10 @@
 						<td align="center"><?php echo $row["password"];?></td>
 						<td align="center"><?php echo $row["email"];?></td>
 						<td align="center">
-							<a href="adminUserEdit.php?ut=parent&un=<?=$userParentArray[1]?>">Edit</a>
+							<a href="adminUserEdit.php?uid=<?=$row["id"]?>">Edit</a>
 						</td>
 						<td align="center">
-							<a href="../controller/adminUserDelete.php?ut=parent&un=<?=$userParentArray[1]?>">Delete</a>
+							<a href="../controller/adminUserDelete.php?uid=<?=$row["id"]?>?>">Delete</a>
 						</td>
 					</tr>
 					<?php	
