@@ -26,9 +26,7 @@
 
 	function signup($usertype, $username, $password, $email){
 		$conn = getConnection();
-		$sql = "insert into users values('', '{$usertype}', '{$username}', '{$password}', '{$email}')";
-
-		echo $sql;
+		$sql = "insert into users values ('','{$usertype}', '{$username}', '{$password}', '{$email}')";
 
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -39,6 +37,10 @@
 
 	function getAllUser(){
 		$conn = getConnection();
+		$sql = "SELECT * FROM users WHERE usertype != 'admin'";
+
+		$res = mysqli_query($conn, $sql);
+		return $res;
 	}
 
 	function getUserById($id){

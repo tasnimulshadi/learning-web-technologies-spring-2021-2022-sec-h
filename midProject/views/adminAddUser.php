@@ -70,7 +70,7 @@
 			</td>
 			<td width="10%"></td>
 			<td width="40%">
-				<form method="POST" action="../controller/addUserCheck.php">
+				<form method="POST" action="../controller/addUserCheckdb.php">
 					<fieldset>
 						<legend>Add New User</legend>
 						<table>

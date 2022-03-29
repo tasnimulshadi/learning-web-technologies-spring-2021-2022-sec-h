@@ -68,69 +68,20 @@
 						<td align="center"><b>Email Address</b></td>
 						<td align="center" colspan="2"><b>Action</b></td>
 					</tr>
-<!--Show Teachers--------------------------------------------------------------->
+<!--Show from DB--------------------------------------------------------------->
 					<?php 
-						$file = fopen('../model/userTeacher.txt', 'r');
-						while(!feof($file)){
-							$user = fgets($file);
-							if ($user!=null) {
-								$userTeacherArray = explode('|', $user);
+						require('../model/userModel.php');
+						$sql = "SELECT id, firstname, lastname FROM MyGuests";
+						$result = getAllUser();
+
+						if (mysqli_num_rows($result) > 0) {
+						  while($row = mysqli_fetch_assoc($result)) {						  
 					?>
 					<tr>
-						<td align="center"><?=$userTeacherArray[0]?></td>
-						<td align="center"><?=$userTeacherArray[1]?></td>
-						<td align="center"><?=$userTeacherArray[2]?></td>
-						<td align="center"><?=$userTeacherArray[3]?></td>
-						<td align="center">
-							<a href="adminUserEdit.php?ut=teacher&un=<?=$userTeacherArray[1]?>">Edit</a>
-						</td>
-						<td align="center">
-							<a href="../controller/adminUserDelete.php?ut=teacher&un=<?=$userTeacherArray[1]?>">Delete</a>
-						</td>
-					</tr>
-					<?php
-							}
-						}
-						fclose($file);
-					?>
-<!--Show Students--------------------------------------------------------------->
-					<?php 
-						$file = fopen('../model/userStudent.txt', 'r');
-						while(!feof($file)){
-							$user = fgets($file);
-							if ($user!=null) {
-								$userStudentArray = explode('|', $user);
-					?>
-					<tr>
-						<td align="center"><?=$userStudentArray[0]?></td>
-						<td align="center"><?=$userStudentArray[1]?></td>
-						<td align="center"><?=$userStudentArray[2]?></td>
-						<td align="center"><?=$userStudentArray[3]?></td>
-						<td align="center">
-							<a href="adminUserEdit.php?ut=student&un=<?=$userStudentArray[1]?>">Edit</a>
-						</td>
-						<td align="center">
-							<a href="../controller/adminUserDelete.php?ut=student&un=<?=$userStudentArray[1]?>">Delete</a>
-						</td>
-					</tr>
-					<?php
-							}
-						}
-						fclose($file);
-					?>
-<!--Show Parents--------------------------------------------------------------->
-					<?php 
-						$file = fopen('../model/userParent.txt', 'r');
-						while(!feof($file)){
-							$user = fgets($file);
-							if ($user!=null) {
-								$userParentArray = explode('|', $user);
-					?>
-					<tr>
-						<td align="center"><?=$userParentArray[0]?></td>
-						<td align="center"><?=$userParentArray[1]?></td>
-						<td align="center"><?=$userParentArray[2]?></td>
-						<td align="center"><?=$userParentArray[3]?></td>
+						<td align="center"><?php echo $row["usertype"];?></td>
+						<td align="center"><?php echo $row["username"];?></td>
+						<td align="center"><?php echo $row["password"];?></td>
+						<td align="center"><?php echo $row["email"];?></td>
 						<td align="center">
 							<a href="adminUserEdit.php?ut=parent&un=<?=$userParentArray[1]?>">Edit</a>
 						</td>
@@ -138,10 +89,12 @@
 							<a href="../controller/adminUserDelete.php?ut=parent&un=<?=$userParentArray[1]?>">Delete</a>
 						</td>
 					</tr>
-					<?php
-							} 
+					<?php	
+							}
+						} 
+						else {
+						  echo "0 results";
 						}
-						fclose($file);
 					?>
 				</table>
 			</td>

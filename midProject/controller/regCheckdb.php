@@ -9,16 +9,9 @@
 
 		if($username != null && $password != null && $email != null){
 			
-			//$user = ['username'=>$username, 'password'=>$password, 'email'=>$email];
-			//$_SESSION['user'] = $user;
+			$status = signup("admin", $username, $password, $email);
 
-			/*$user = $username."|".$password."|".$email;
-			$file = fopen("../model/user.txt", 'w');
-			fwrite($file, $user);
-			fclose($file);*/
 			
-			$status = signup($usertype, $username, $password, $email);
-
 			if($status){
 				header('location: ../views/login.php');
 			}else{
