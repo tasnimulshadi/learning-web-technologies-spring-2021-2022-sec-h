@@ -1,17 +1,5 @@
 <?php
 	require_once('../controller/headerCookie.php');
-
-	$uname =  $_SESSION['uname'];
-	$file = fopen('../model/userAdmin.txt', 'r');
-	while(!feof($file)){
-		$user = fgets($file);
-		$userArray = explode('|', $user);
-
-		if(trim($userArray[1]) == $uname){
-			$userData = $userArray;
-			break;
-		}
-	}
 ?>
 
 <html>
@@ -70,7 +58,7 @@
 			</td>
 			<td width="10%"></td>
 			<td width="40%">
-				<form method="POST" action="../controller/addUserCheckdb.php">
+				<form method="POST" action="../controller/addUserCheck.php">
 					<fieldset>
 						<legend>Add New User</legend>
 						<table>

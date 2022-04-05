@@ -68,24 +68,42 @@
 					</tr>
 <!--Show Notice--------------------------------------------------------------->
 					<?php 
-						$file = fopen('../model/notice.txt', 'r');
-						while(!feof($file)){
-							$f = fgets($file);
-							if ($f!=null) {
-								$notice = explode('|', $f);
+						require('../model/userModel.php');
+						$result = getAllNotice();
+
+						if (mysqli_num_rows($result) > 0) {
+						  while($row = mysqli_fetch_assoc($result)) {						  
 					?>
 					<tr>
-						<td align="center" width="100px"><?=$notice[0]?></td>
-						<td align="center" width="200px"><?=$notice[1]?></td>
-						<td align="center"><?=$notice[2]?></td>
-						<td align="center" width="100px"><a href="../controller/adminNoticeDelete.php?date=<?=$notice[0]?>">Delete</a></td>
+						<td align="center" width="100px"><?php echo $row["date"];?></td>
+						<td align="center" width="200px"><?php echo $row["title"];?></td>
+						<td align="center"><?php echo $row["detail"];?></td>
+						<td align="center" width="100px"><a href="../controller/adminNoticeDelete.php?noticeid=<?=$row["id"]?>">Delete</a></td>
 					</tr>
-					<?php
+					<?php	
 							}
+						} 
+						else {
+						  echo "0 results";
 						}
-						fclose($file);
 					?>
 				</table>
+				<?php 
+					if(isset($_GET['delmsg'])) 
+				    { 
+						$delmsg = $_GET['delmsg'];
+				        if ($delmsg=="success") {
+						?>
+						<p style="color:green;">Notice Successfully Deleted</p>
+						<?php
+						}
+						else {
+						?>
+						<p style="color:red;">Notice Not Deleted</p>
+						<?php
+						}
+				    }
+				?> 
 			</td>
 		</tr>
 	</table>

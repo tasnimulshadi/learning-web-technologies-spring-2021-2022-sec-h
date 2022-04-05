@@ -25,7 +25,7 @@
 		<tr>
 			<td width="30%"></td>
 			<td width="40%">
-				<form method="POST" action="../controller/regCheckdb.php">
+				<form method="POST" action="../controller/regCheck.php">
 					<fieldset>
 						<legend>Admin Signup</legend>
 						<table>

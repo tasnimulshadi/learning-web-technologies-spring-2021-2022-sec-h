@@ -1,6 +1,5 @@
 <?php 
 	require_once('../controller/headerCookie.php');
-	$uname =  $_SESSION['uname'];
 ?>
 
 <html>
@@ -71,7 +70,6 @@
 <!--Show from DB--------------------------------------------------------------->
 					<?php 
 						require('../model/userModel.php');
-						$sql = "SELECT id, firstname, lastname FROM MyGuests";
 						$result = getAllUser();
 
 						if (mysqli_num_rows($result) > 0) {
@@ -83,10 +81,10 @@
 						<td align="center"><?php echo $row["password"];?></td>
 						<td align="center"><?php echo $row["email"];?></td>
 						<td align="center">
-							<a href="adminUserEdit.php?uid=<?=$row["id"]?>">Edit</a>
+							<a href="adminUserEdit.php?editUid=<?=$row["id"]?>">Edit</a>
 						</td>
 						<td align="center">
-							<a href="../controller/adminUserDelete.php?uid=<?=$row["id"]?>?>">Delete</a>
+							<a href="../controller/adminUserDelete.php?deleteUid=<?=$row["id"]?>?>">Delete</a>
 						</td>
 					</tr>
 					<?php	
@@ -97,6 +95,38 @@
 						}
 					?>
 				</table>
+				<br>
+				<?php 
+					if(isset($_GET['delmsg'])) 
+				    { 
+						$delmsg = $_GET['delmsg'];
+				        if ($delmsg=="success") {
+						?>
+						<p style="color:green;">User Successfully Deleted</p>
+						<?php
+						}
+						else {
+						?>
+						<p style="color:red;">User Not Deleted</p>
+						<?php
+						}
+				    } 
+				    
+				    if(isset($_GET['editmsg'])) 
+				    { 
+						$editmsg = $_GET['editmsg'];
+				        if ($editmsg=="success") {
+						?>
+						<p style="color:green;">User Successfully Edited</p>
+						<?php
+						}
+						else {
+						?>
+						<p style="color:red;">User Not Edited</p>
+						<?php
+						}
+				    }					  
+				?>
 			</td>
 		</tr>
 	</table>

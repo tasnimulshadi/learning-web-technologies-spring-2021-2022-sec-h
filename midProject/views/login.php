@@ -25,7 +25,7 @@
 		<tr>
 			<td width="30%"></td>
 			<td width="40%">
-				<form method="POST" action="../controller/loginCheckdb.php">
+				<form method="POST" action="../controller/loginCheck.php">
 					<fieldset>
 						<legend>Login</legend>
 						<table>

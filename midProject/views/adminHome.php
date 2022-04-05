@@ -1,17 +1,5 @@
 <?php 
 	require_once('../controller/headerCookie.php');
-
-	$uname =  $_SESSION['uname'];
-	$file = fopen('../model/userAdmin.txt', 'r');
-	while(!feof($file)){
-		$user = fgets($file);
-		$userArray = explode('|', $user);
-
-		if(trim($userArray[1]) == $uname){
-			$userData = $userArray;
-			break;
-		}
-	}
 ?>
 
 <html>
@@ -75,7 +63,7 @@
 					<tr>
 						<td align="center"><img src="img/wc.png"></td>
 						<td width="100px"></td>
-						<td><h1><?=$userData[1]?></h1></td>
+						<td><h1><?=$_SESSION['uname']?></h1></td>
 					</tr>
 				</table>				
 			</td>

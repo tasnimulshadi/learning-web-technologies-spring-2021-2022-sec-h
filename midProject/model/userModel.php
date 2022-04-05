@@ -1,4 +1,8 @@
 <?php 
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 
 	function getConnection(){
 		$host = "localhost";
@@ -15,14 +19,23 @@
 		$conn = getConnection();
 		$sql = "select * from users where usertype='{$usertype}' and username='{$username}' and password='{$password}'";
 
-		$result = mysqli_query($conn, $sql);
+		$res = mysqli_query($conn, $sql);
 
-		if(mysqli_num_rows($result)){
+		$row = mysqli_fetch_assoc($res);
+
+		if(mysqli_num_rows($res)){
+			$_SESSION['uid'] = $row["id"];
+			$_SESSION['utype'] = $row["usertype"];
+			$_SESSION['uname'] = $row["username"];
+			$_SESSION['upass'] = $row["password"];
+			$_SESSION['uemail'] = $row["email"];
 			return true;
 		}else{
 			return false;
 		}
 	}
+
+
 
 	function signup($usertype, $username, $password, $email){
 		$conn = getConnection();
@@ -45,7 +58,16 @@
 
 	function getUserById($id){
 		$conn = getConnection();
+		$sql = "SELECT * FROM users WHERE id = '{$id}'";
 
+		$res = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($res);
+		$usertype = $row["usertype"];
+		$username = $row["username"];
+		$password = $row["password"];
+		$email = $row["email"];
+
+		return array($usertype,$username,$password,$email);
 	}
 
 	function deleteUserById($id){
@@ -61,8 +83,47 @@
 		}
 	}
 
-	function updateUser($user){
+	function updateUser($id, $username, $password, $email){
 		$conn = getConnection();
+		$sql = "UPDATE users SET username='{$username}',password='{$password}',email='{$email}' WHERE id='{$id}'";
+
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function getAllNotice(){
+		$conn = getConnection();
+		$sql = "SELECT * FROM notice";
+
+		$res = mysqli_query($conn, $sql);
+		return $res;
+	}
+
+	function deleteNoticeById($id){
+		$conn = getConnection();
+		$sql = "DELETE FROM notice WHERE id='{$id}'";
+		$del = mysqli_query($conn, $sql);
+		
+		if($del){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	function addNotice($date, $title, $detail){
+		$conn = getConnection();
+		$sql = "insert into notice values ('','{$date}', '{$title}', '{$detail}')";
+
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 ?>

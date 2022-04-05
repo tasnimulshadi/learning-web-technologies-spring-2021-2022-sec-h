@@ -1,17 +1,5 @@
 <?php 
 	require_once('../controller/headerCookie.php');
-
-	$uname =  $_SESSION['uname'];
-	$file = fopen('../model/userAdmin.txt', 'r');
-	while(!feof($file)){
-		$user = fgets($file);
-		$userArray = explode('|', $user);
-
-		if(trim($userArray[1]) == $uname){
-			$userData = $userArray;
-			break;
-		}
-	}
 ?>
 
 <html>
@@ -74,7 +62,7 @@
 					<tr>
 						<td><b>User Type:</b></td>
 						<td width="100px"></td>
-						<td><?=$userData[0]?></td>
+						<td><?=$_SESSION['utype']?></td>
 					</tr>
 					<tr>
 						<td colspan="3"><hr></td>
@@ -82,7 +70,7 @@
 					<tr>
 						<td><b>Username:</b></td>
 						<td width="100px"></td>
-						<td><?=$userData[1]?></td>
+						<td><?=$_SESSION['uname']?></td>
 					</tr>
 					<tr>
 						<td colspan="3"><hr></td>
@@ -90,7 +78,7 @@
 					<tr>
 						<td><b>Password:</b></td>
 						<td width="100px"></td>
-						<td><?=$userData[2]?></td>
+						<td><?=$_SESSION['upass']?></td>
 					</tr>
 					<tr>
 						<td colspan="3"><hr></td>
@@ -98,7 +86,7 @@
 					<tr>
 						<td><b>Email:</b></td>
 						<td width="100px"></td>
-						<td><?=$userData[3]?></td>
+						<td><?=$_SESSION['uemail']?></td>
 					</tr>
 				</table>
 			</td>

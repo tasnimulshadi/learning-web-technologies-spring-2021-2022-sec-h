@@ -1,17 +1,6 @@
 <?php
 	require_once('../controller/headerCookie.php');
 
-	$uname =  $_SESSION['uname'];
-	$file = fopen('../model/userAdmin.txt', 'r');
-	while(!feof($file)){
-		$user = fgets($file);
-		$userArray = explode('|', $user);
-
-		if(trim($userArray[1]) == $uname){
-			$userData = $userArray;
-			break;
-		}
-	}
 ?>
 
 <html>
@@ -85,8 +74,8 @@
 								<td><input type="text" name="title" value=""></td>
 							</tr>
 							<tr>
-								<td>Details</td>
-								<td><input type="text" name="details" value=""></td>
+								<td>Detail</td>
+								<td><input type="text" name="detail" value=""></td>
 							</tr>
 							<tr>
 								<td></td>
@@ -96,6 +85,7 @@
 					</form>
 				</fieldset>
 				<br>
+				<!--
 				<fieldset>
 					<legend>Upload Notice</legend>
 					<form method="POST" action="../controller/fileUploadCheck.php" enctype="multipart/form-data">
@@ -103,6 +93,7 @@
 						<input type="submit" name="submit" value="Submit">
 					</form>
 				</fieldset>
+				-->
 			</td>
 			<td width="30%"></td>
 		</tr>

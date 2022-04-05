@@ -2,9 +2,9 @@
 	require_once('../controller/headerCookie.php');
 	require('../model/userModel.php');
 
-	$uid =  $_GET['uid'];
+	$deleteUid =  $_GET['deleteUid'];
 
-	if (deleteUserById($uid)) {
+	if (deleteUserById($deleteUid)) {
 	  header('location: ../views/adminUsers.php?delmsg=success');
 	} else {
 	  header('location: ../views/adminUsers.php?delmsg=error');
