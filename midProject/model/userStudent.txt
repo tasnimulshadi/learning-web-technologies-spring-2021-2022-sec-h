@@ -1,5 +1,0 @@
-student|s|s|s@s.s
-student|student|student|student@student.student
-student|student|1234|student@email.com
-student|sfsdf|fgsdf|fgffdgddfgnfdguddydxgdfgffdgdfgdfi@gmail.com
-student|gg|gg|fgffdgddfgnfdguddydxgdfgffdgdfgdfi@gmail.com
