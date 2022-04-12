@@ -25,7 +25,10 @@
 		<tr>
 			<td width="30%"></td>
 			<td width="40%">
+				<!--
 				<form method="POST" action="../controller/loginCheck.php">
+				-->
+				
 					<fieldset>
 						<legend>Login</legend>
 						<table>
@@ -33,7 +36,7 @@
 								<td>User Type:</td>
 								<td width="10"></td>
 								<td>
-									<input type="radio" name="usertype" value="admin" required>Admin
+									<input type="radio" name="usertype" id="inputUsertype" value="admin" required>Admin
 									<input type="radio" name="usertype" value="teacher">Teacher
 									<input type="radio" name="usertype" value="student">Student
 									<input type="radio" name="usertype" value="parent">Parent
@@ -42,21 +45,22 @@
 							<tr>
 								<td>Username:</td>
 								<td></td>
-								<td><input type="text" name="username" value=""></td>
+								<td><input type="text" name="username" id="inputUsername" value=""></td>
 							</tr>
 							<tr>
 								<td>Password:</td>
 								<td></td>
-								<td><input type="password" name="password" value=""	></td>
+								<td><input type="password" name="password" id="inputPassword" value=""	></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td></td>
-								<td><input type="submit" name="submit" value="Submit"></td>
+								<td><input type="button" name="submit" onclick="ajaxLogin()" value="Submit" ></td>
 							</tr>
 						</table>
 					</fieldset>
-				</form>
+					<p id="msg"></p>
+				
 			</td>
 			<td width="30%"></td>
 		</tr>
@@ -71,6 +75,14 @@
 			</td>
 		</tr>
 	</table>
+
+
+<!-- JavaScript -->		
+<script type="text/javascript" src="../controller/script.js"></script>	
+	
+<script>
+
+</script>
 
 
 </body>

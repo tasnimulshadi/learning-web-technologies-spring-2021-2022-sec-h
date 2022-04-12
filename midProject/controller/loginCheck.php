@@ -1,6 +1,44 @@
 <?php 
 	require('../model/userModel.php');
 
+	$usertype=$_GET['utype'];
+	$username=$_GET['uname'];
+	$password=$_GET['upass'];
+
+
+
+if($username != "" && $password != ""){
+	$status = login($usertype, $username, $password);
+		if($status){
+			$_SESSION['status'] = 'true';
+			setcookie('status', 'true', time()+3600, '/');
+			$_SESSION['usertype'] = $usertype;
+			$_SESSION['username'] = $username;
+			$_SESSION['password'] = $password;
+			
+			header('location: ../views/adminHome.php');
+		}else{
+			echo "error";
+		}
+}
+else{
+	echo "null";
+}
+
+
+
+?>
+
+
+
+
+
+
+
+<?php 
+
+
+/*
 	if(isset($_REQUEST['submit'])){
 		$usertype = $_REQUEST['usertype'];
 		$username = $_REQUEST['username'];
@@ -35,5 +73,10 @@
 		}else{
 			echo "null submission..";
 		}
-	}	
+	}
+*/
+
+
+
+
 ?>
