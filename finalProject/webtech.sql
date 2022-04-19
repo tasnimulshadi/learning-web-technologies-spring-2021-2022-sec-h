@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2022 at 06:50 PM
+-- Generation Time: Apr 19, 2022 at 02:45 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.15
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `notice` (
   `id` int(100) NOT NULL,
   `date` date NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `detail` varchar(255) NOT NULL
+  `title` mediumtext NOT NULL,
+  `detail` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -39,7 +39,10 @@ CREATE TABLE `notice` (
 --
 
 INSERT INTO `notice` (`id`, `date`, `title`, `detail`) VALUES
-(2, '2022-03-30', 'sdf', ' fadsf');
+(10, '2022-04-26', 'many of the secrets of how they were constructed have been lost', 'many of the secrets of how they were constructed have been lost many of the secrets of how they were constructed have been lost many of the secrets of how they were constructed have been lost many of the secrets of how they were constructed have been lost many of the secrets of how they were constructed have been lost'),
+(11, '2022-04-14', 'W3Schools is optimized for learning and training', 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using W3Schools, you agree to have read and accepted our terms of use, cookie and privacy policy.'),
+(14, '2022-04-13', 'new notice test 1', 'something something'),
+(15, '2022-04-06', 'Test notice 2', 'Test notice details');
 
 -- --------------------------------------------------------
 
@@ -62,7 +65,15 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `usertype`, `username`, `password`, `email`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin@admin.com'),
 (2, 'admin', 'shadi', '1234', 'shadi@admin.com'),
-(9, 'student', 's1', 's1', 's1@gmail.com');
+(10, 'admin', 'admin', '1234', 'tasnimulislamshadi@gmail.com'),
+(12, 'teacher', 'alamin', '1234', 'mdalamin@aiub.edu'),
+(13, 'student', 'shadi', '1234', 'shadi@gmail.com'),
+(14, 'parent', 'parent1', '1234', 'parent@gmail.com'),
+(15, 'teacher', 'teacher1', '1234', 'teacher@gmail.com'),
+(16, 'student', 'student1', '1234', 's@gmail.com'),
+(17, 'parent', 'parent2', '1234', 'p2@gmail.com'),
+(19, 'admin', 'admin', '789', 'tasnimulislamshadi@gmail.com'),
+(20, 'student', 'sharan', '1234', 'sharan@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -88,13 +99,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

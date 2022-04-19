@@ -2,24 +2,26 @@
 	session_start();
 	require('../model/userModel.php');
 
-	if(isset($_REQUEST['submit'])){
-		$username = $_REQUEST['username'];
-		$password = $_REQUEST['password'];
-		$email = $_REQUEST['email'];
+	$json = $_GET['myjson'];
+	$regInfo = json_decode($json);
+	$email = $regInfo->email;
+	$username = $regInfo->username;
+	$password = $regInfo->password;
 
-		if($username != null && $password != null && $email != null){
+	if($username != null && $password != null && $email != null){
 			
-			$status = signup("admin", $username, $password, $email);
-
-			
-			if($status){
-				header('location: ../views/login.php');
-			}else{
-				header('location: ../views/reg.php');
-			}
-
+		$status = signup("admin", $username, $password, $email);
+		
+		if($status){
+			echo "New Admin Account Created";
+			//header('location: ../views/login.php');
 		}else{
-			echo "null submission..";
+			echo "Error Occurred...";
+			//header('location: ../views/reg.php');
 		}
+
+	}else{
+		echo "Null Submission...";
 	}	
+
 ?>

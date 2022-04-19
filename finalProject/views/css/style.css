@@ -425,3 +425,95 @@
 	font-size: 20px;
 }
 
+
+/*Add Users -------------------------------------------------------------*/
+#addusers{
+	width: 100%;
+	float: left;
+}
+#addusers h2{
+	text-align: center;
+	margin: 20px;
+}
+
+.addusers_form{
+	margin:50px auto !important;
+	border-color: #aa4604a3 !important;
+}
+
+.addusers_form form .login_inputField{
+	border-color: #aa4604a3 !important;
+}
+.addusers_form form .login_submitBtn{
+    color:white !important;
+    background-color:#aa4604a3 !important;
+    border-color: #aa4604a3 !important;
+}
+.addusers_form form .login_submitBtn:hover{
+    background-color:black !important;
+    color: white !important;
+    cursor: pointer !important;
+}
+
+/*Edit Users -------------------------------------------------------------*/
+#editusers{
+	width: 100%;
+	float: left;
+}
+#editusers h2{
+	text-align: center;
+	margin: 20px;
+}
+
+.editusers_form{
+	margin:50px auto !important;
+	border-color: #3173db !important;
+}
+
+.editusers_form form .login_inputField{
+	border-color: #3173db !important;
+}
+.editusers_form form .login_submitBtn{
+    color:white !important;
+    background-color:#3173db !important;
+    border-color: #3173db !important;
+}
+.editusers_form form .login_submitBtn:hover{
+    background-color:black !important;
+    color: white !important;
+    cursor: pointer !important;
+}
+
+/*Edit Users -------------------------------------------------------------*/
+#addnotice{
+	width: 100%;
+	float: left;
+}
+#addnotice h2{
+	text-align: center;
+	margin: 20px;
+}
+
+.addnotice_form{
+	margin:50px auto !important;
+	border-color: #04AA6D !important;
+}
+
+.addnotice_form form .login_inputField{
+	border-color: #04AA6D !important;
+}
+.addnotice_form form .login_submitBtn{
+    color:white !important;
+    background-color:#04AA6D !important;
+    border-color: #04AA6D !important;
+}
+.addnotice_form form .login_submitBtn:hover{
+    background-color:black !important;
+    color: white !important;
+    cursor: pointer !important;
+}
+.addnotice_dateField{
+	color: #04AA6D !important;
+	cursor: pointer !important;
+}
+

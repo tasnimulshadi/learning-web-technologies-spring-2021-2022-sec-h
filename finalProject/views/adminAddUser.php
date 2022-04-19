@@ -1,109 +1,46 @@
-<?php
+<?php 
 	require_once('../controller/headerCookie.php');
 ?>
 
 <html>
 <head>
-	<title>Add User</title>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>	
-	<!-- Menu -->
-	<table border="0" width="100%" height="100px">
-		<tr>
-			<td align="left">
-				<img src="img/logo.png" width="100px" height="100px">
-			</td>
-			<td align="right">
-				<h3>
-					<a href="adminProfile.php">Profile</a> |
-					<a href="../controller/logout.php"> Logout </a>
-				</h3>
-			</td>
-		</tr>
-	</table>
-	<hr>
-
-<!-- Content -->
-	<table border="0" width="100%" height="500px">
-		<tr>
-			<td align="center" width="20%" valign="top">
-				<!-- Side menu -->
-				<table border="1"  width="100%" >
-					<tr>
-						<td align="center" height="50px">
-							<a href="adminHome.php">Home</a>
-						</td>
-					</tr>
-					<tr>
-						<td align="center" height="50px">
-							<a href="adminNotice.php">Notice</a>
-						</td>
-					</tr>
-					<tr>
-						<td align="center" height="50px">
-							<a href="adminAddNotice.php">Add Notice</a>
-						</td>
-					</tr>
-					<tr>
-						<td align="center" height="50px">
-							<a href="adminUsers.php">Users</a>
-						</td>
-					</tr>
-					<tr>
-						<td align="center" height="50px">
-							<a href="adminAddUser.php">Add User</a>
-						</td>
-					</tr>
-				</table>
-			</td>
-			<td width="10%"></td>
-			<td width="40%">
-				<form method="POST" action="../controller/addUserCheck.php">
-					<fieldset>
-						<legend>Add New User</legend>
-						<table>
-							<tr>
-								<td>User Type</td>
-								<td>
-									<input type="radio" name="usertype" value="admin" required>Admin
-									<input type="radio" name="usertype" value="teacher">Teacher
-									<input type="radio" name="usertype" value="student">Student
-									<input type="radio" name="usertype" value="parent">Parent
-								</td>
-							</tr>
-							<tr>
-								<td>Username</td>
-								<td><input type="text" name="username" value=""></td>
-							</tr>
-							<tr>
-								<td>Password</td>
-								<td><input type="password" name="password" value=""></td>
-							</tr>
-							<tr>
-								<td>Email</td>
-								<td><input type="email" name="email" value=""></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><input type="submit" name="submit" value="Submit"></td>
-							</tr>
-						</table>
-					</fieldset>
-				</form>
-			</td>
-			<td width="30%"></td>
-		</tr>
-	</table>
-
-<!-- Footer -->	
-	<hr>
-	<table border="0" width="100%" height="50px">
-		<tr>
-			<td colspan="2" align="center">
-				Copyright ~ Web Technology, Section: H, Group: 3
-			</td>
-		</tr>
-	</table>
+<body>
 	
+	<!--Top Menu-->
+	<?php echo file_get_contents("html/topMenu.html"); ?>
+
+	<section id="body">
+		<?php echo file_get_contents("html/sideMenu.html"); ?>
+		<!---------------------------------------------------------------------------------------------------------------------------------------Content-------------------------------------------------------------------------------------------------------------------------------------------------->
+			<div id="content">
+				<div id="addusers">
+					<h2>Add User</h2>
+					<div id="loginBody_form" class="addusers_form">
+						<form>
+							<div class="login_radio">
+								<input type="radio" class="login_inputRadio" name="usertype" value="teacher" required>Teacher 
+								<input type="radio" class="login_inputRadio" name="usertype" value="student">Student 
+								<input type="radio" class="login_inputRadio" name="usertype" value="parent">Parent
+							</div>
+							<input type="text" name="username" id="inputUsername" class="login_inputField" placeholder="Username" value="">
+
+							<input type="password" name="password" id="inputPassword" class="login_inputField" placeholder="Password" value="">
+
+							<input type="email" name="email" id="inputEmail" class="login_inputField" placeholder="email@email.com" value="">
+
+							<input type="submit" name="submit" onclick="ajaxAddUser()" class="login_submitBtn" value="Add User">
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<!--Footer-->
+	<?php echo file_get_contents("html/footer.html"); ?>
+
+	<script src="script.js"></script>
 </body>
 </html>

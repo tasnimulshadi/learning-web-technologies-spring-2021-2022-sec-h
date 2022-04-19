@@ -35,8 +35,8 @@ function ajaxLogin(){
 			}						
 		}
 	}
-	
 }
+
 
 function openSignup(){
 	location.href = 'reg.php';
@@ -44,3 +44,64 @@ function openSignup(){
 function openLogin(){
 	location.href = 'login.php';
 }
+
+
+function ajaxReg(){
+		
+	let regInfo = {
+		username: document.getElementById('inputUsername').value,
+		password: document.getElementById('inputPassword').value,
+		email: document.getElementById('inputEmail').value
+	};
+	let json = JSON.stringify(regInfo);
+
+	let http = new XMLHttpRequest();
+	http.open('GET', '../controller/regCheck.php?myjson='+json, true);
+	http.send();
+	http.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200 ){
+			alert(this.responseText);					
+		}
+	}
+}
+
+
+function ajaxAddUser(){
+	let addUserInfo = {
+		usertype: document.querySelector('input[name="usertype"]:checked').value,
+		username: document.getElementById('inputUsername').value,
+		password: document.getElementById('inputPassword').value,
+		email: document.getElementById('inputEmail').value
+	};
+	let json = JSON.stringify(addUserInfo);
+
+	let http = new XMLHttpRequest();
+	http.open('GET', '../controller/addUserCheck.php?myjson='+json, true);
+	http.send();
+	http.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200 ){
+			alert(this.responseText);					
+		}
+	}
+}
+
+
+function ajaxAddNotice(){
+	let addNoticeInfo = {
+		date: document.getElementById('inputDate').value,
+		title: document.getElementById('inputTitle').value,
+		detail: document.getElementById('inputDetail').value,
+	};
+	let json = JSON.stringify(addNoticeInfo);
+
+	let http = new XMLHttpRequest();
+	http.open('GET', '../controller/addNoticeCheck.php?myjson='+json, true);
+	http.send();
+	http.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200 ){
+			alert(this.responseText);					
+		}
+	}
+}
+
+

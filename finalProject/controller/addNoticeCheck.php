@@ -2,25 +2,25 @@
 	require_once('../controller/headerCookie.php');
 	require('../model/userModel.php');
 
-	if(isset($_REQUEST['submit'])){
-		$date = $_REQUEST['date'];
-		$title = $_REQUEST['title'];
-		$detail = $_REQUEST['detail'];
+	$json = $_GET['myjson'];
+	$addNoticeInfo = json_decode($json);
+	$date = $addNoticeInfo->date;
+	$title = $addNoticeInfo->title;
+	$detail = $addNoticeInfo->detail;
 
-		if($date != null && $title != null && $detail != null){
+	if($date != null && $title != null && $detail != null){
 			
-			$status = addNotice($date, $title, $detail);
+		$status = addNotice($date, $title, $detail);
 
-			if($status){
-				header('location: ../views/adminNotice.php');
-			}else{
-				header('location: ../views/adminNotice.php');
-			}
+		if($status){
+			echo "New Notice Added...";
+		}else{
+			echo "Error Occurred...";
+		}
 
-		}
-		else{
-			echo "null submission..";
-		}
+	}
+	else{
+		echo "Null Submission..";
 	}	
 
 
